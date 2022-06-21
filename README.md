@@ -16,6 +16,7 @@ The login page checks the credentials from the server's database. If the log-in 
 
 * React.js v18.1.0
 * Firebase
+* SCSS
 
 
 
