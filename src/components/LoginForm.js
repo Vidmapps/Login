@@ -70,7 +70,7 @@ function LoginForm() {
       </div>
       <button
         className={classes.loginBtn}
-        //disabled={validUserContext.isLoggedIn}
+        disabled={validUserContext.isLoggedIn}
       >
         {validUserContext.isLoggedIn ? "Already logged in" : "Login"}
       </button>
