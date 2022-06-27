@@ -1,42 +1,32 @@
-import { useState, useRef, useEffect } from "react";
-import { authCheck, localAuthCheck } from "../authCheck";
+import { useRef, useEffect, useContext } from "react";
 
 import classes from "./LoginForm.module.scss";
 import usernameIcon from "../assets/akar-icons_person.svg";
 import passwordIcon from "../assets/carbon_password.svg";
+import ValidUserContext from "../authCheck";
 
 let isInitial = true;
 
 function LoginForm() {
+  const validUserContext = useContext(ValidUserContext);
+
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
-  const [loginData, setLoginData] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   useEffect(() => {
     if (isInitial) {
-      setIsLoggedIn(localAuthCheck());
+      validUserContext.localAuthCheck();
       isInitial = false;
-    } else {
-      localStorage.setItem("login-data", JSON.stringify(loginData));
     }
-  }, [loginData]);
+  }, [validUserContext]);
 
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const enteredEmail = emailInputRef.current.value;
-    const enteredPassword = passwordInputRef.current.value;
-
-    if (authCheck(enteredEmail, enteredPassword)) {
-      setLoginData(authCheck(enteredEmail, enteredPassword));
-      setIsLoggedIn(true);
-      alert("Logged in!");
-    } else {
-      setIsLoggedIn(false);
-      alert("Authentication failed!");
-    }
+    validUserContext.apiAuthCheck(
+      emailInputRef.current.value,
+      passwordInputRef.current.value
+    );
   };
 
   return (
@@ -53,10 +43,10 @@ function LoginForm() {
           type="email"
           id="user-name"
           name="user-name"
-          autoComplete="off"
+          autoComplete="on"
           placeholder="Username or E-mail"
           ref={emailInputRef}
-          required={!isLoggedIn}
+          required={!validUserContext.isLoggedIn}
         ></input>
       </div>
 
@@ -75,11 +65,14 @@ function LoginForm() {
           autoComplete="off"
           placeholder="Password"
           ref={passwordInputRef}
-          required={!isLoggedIn}
+          required={!validUserContext.isLoggedIn}
         ></input>
       </div>
-      <button className={classes.loginBtn} disabled={isLoggedIn}>
-        {isLoggedIn ? "Already logged in" : "Login"}
+      <button
+        className={classes.loginBtn}
+        //disabled={validUserContext.isLoggedIn}
+      >
+        {validUserContext.isLoggedIn ? "Already logged in" : "Login"}
       </button>
     </form>
   );

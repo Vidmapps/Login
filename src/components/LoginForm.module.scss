@@ -49,12 +49,20 @@
   font-size: medium;
   color: #00ff29;
   width: 100%;
+  cursor: pointer;
+  &:active {
+    opacity: 50%;
+  }
+  &:hover {
+    filter: invert(100%);
+  }
 }
 .icon {
   position: absolute;
   margin-top: 30px;
   margin-left: 20px;
 }
+
 @media (max-width: 550px) {
   .form {
     width: 95%;
