@@ -1,0 +1,35 @@
+@mixin display-flex() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin justify-content-center() {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+@mixin align-items-center() {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@mixin input-placeholder() {
+  &::-webkit-input-placeholder,
+  &::-moz-placeholder,
+  &::-ms-input-placeholder,
+  &::placeholder {
+    position: absolute;
+    margin-top: 18px;
+    color: #fff;
+  }
+}
+
+@mixin media-max-width() {
+  @media (max-width: 550px) {
+    @content;
+  }
+}

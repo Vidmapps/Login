@@ -1,54 +1,33 @@
+@import "../mixins";
+@import "../variables";
+@import "../extensions";
+
 .form {
   display: -ms-grid;
   display: grid;
-  margin: 40px;
+  margin: $main-margin * 4;
   width: 433px;
-  input {
-    &::-webkit-input-placeholder {
-      position: absolute;
-      margin-top: 18px;
-      color: #ffffff;
-    }
-    &::-moz-placeholder {
-      position: absolute;
-      margin-top: 18px;
-      color: #ffffff;
-    }
-    &:-ms-input-placeholder {
-      position: absolute;
-      margin-top: 18px;
-      color: #ffffff;
-    }
-    &::-ms-input-placeholder {
-      position: absolute;
-      margin-top: 18px;
-      color: #ffffff;
-    }
-    &::placeholder {
-      position: absolute;
-      margin-top: 18px;
-      color: #ffffff;
-    }
-    padding-left: 75px;
+  @include media-max-width() {
+    width: 95%;
   }
 }
+
+input {
+  @include input-placeholder();
+  padding-left: 75px;
+}
+
 .input {
-  border: 1px solid #ffffff;
-  border-radius: 10px;
-  margin-top: 21px;
-  height: 50px;
-  background: none;
-  width: -webkit-fill-available;
+  @extend .mainInputStyle;
+  border: 1px solid #fff;
+  margin-top: $main-margin * 2;
 }
 .loginBtn {
-  border: 2px solid #00ff29;
-  border-radius: 10px;
-  margin-top: 53px;
-  height: 50px;
-  background: none;
+  @extend .mainInputStyle;
+  border: 2px solid $submit-color;
+  margin-top: $main-margin * 5;
   font-size: medium;
-  color: #00ff29;
-  width: 100%;
+  color: $submit-color;
   cursor: pointer;
   &:active {
     opacity: 50%;
@@ -59,12 +38,6 @@
 }
 .icon {
   position: absolute;
-  margin-top: 30px;
-  margin-left: 20px;
-}
-
-@media (max-width: 550px) {
-  .form {
-    width: 95%;
-  }
+  margin-top: $main-margin * 3;
+  margin-left: $main-margin * 2;
 }
