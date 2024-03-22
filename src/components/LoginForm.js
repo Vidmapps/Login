@@ -7,7 +7,7 @@ import ValidUserContext from "../authCheck";
 
 let isInitial = true;
 
-function LoginForm() {
+const LoginForm = () => {
   const validUserContext = useContext(ValidUserContext);
 
   const emailInputRef = useRef();
@@ -76,6 +76,6 @@ function LoginForm() {
       </button>
     </form>
   );
-}
+};
 
 export default LoginForm;
