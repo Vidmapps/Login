@@ -35,5 +35,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "![image](https://user-images.githubusercontent.com/58663418/174718200-644c41f2-a653-4671-bff7-d8a627351990.png)",
+  "main": "index.js",
+  "devDependencies": {
+    "typescript": "^5.4.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

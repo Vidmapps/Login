@@ -2,7 +2,7 @@ import classes from "./LoginHead.module.scss";
 
 const LoginHead = () => (
   <div>
-    <title className={classes.loginTitle}>Login</title>
+    <h1 className={classes.loginTitle}>Login</h1>
     <div>Please enter you Login and your Password</div>
   </div>
 );
