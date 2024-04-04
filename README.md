@@ -14,9 +14,11 @@ The login page checks the credentials from the server's database. If the log-in 
 
 ### Built With
 
-* React.js v18.2.0
+* React.js v18.1.0
 * Firebase
 * SCSS
+* i18next v23.10.1
+* TypeScript v5.4.3
 
 
 
