@@ -1,10 +1,15 @@
 import classes from "./LoginHead.module.scss";
+import { useTranslation } from 'react-i18next';
 
-const LoginHead = () => (
-  <div>
-    <h1 className={classes.loginTitle}>Login</h1>
-    <div>Please enter you Login and your Password</div>
-  </div>
-);
+const LoginHead = () => {
+  const { t } = useTranslation();
+
+  return ( 
+    <div>
+      <h1 className={classes.loginTitle}>{t("loginPage.login")}</h1>
+      <div>{t("loginPage.passwordRequest")}</div>
+    </div>
+  );
+};
 
 export default LoginHead;

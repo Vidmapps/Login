@@ -28,12 +28,10 @@ input {
   margin-top: $main-margin * 5;
   font-size: medium;
   color: $submit-color;
+  opacity: 70%;
   cursor: pointer;
-  &:active {
-    opacity: 50%;
-  }
   &:hover {
-    filter: invert(100%);
+    opacity: 100%;
   }
 }
 .icon {

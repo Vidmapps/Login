@@ -3,10 +3,13 @@ import classes from "./LoginForm.module.scss";
 import usernameIcon from "../../assets/akar-icons_person.svg";
 import passwordIcon from "../../assets/carbon_password.svg";
 import ValidUserContext from "../../authCheck";
+import { useTranslation } from "react-i18next";
 
 let isInitial = true;
 
 const LoginForm = () => {
+  const { t } = useTranslation();
+
   const validUserContext = useContext(ValidUserContext);
 
   const emailInputRef = useRef<HTMLInputElement>(null!);
@@ -42,7 +45,7 @@ const LoginForm = () => {
           id="username"
           name="username"
           autoComplete="on"
-          placeholder="Username or E-mail"
+          placeholder={t("loginPage.username")}
           ref={emailInputRef}
           required={!validUserContext.isLoggedIn}
           data-testid="username" 
@@ -61,7 +64,7 @@ const LoginForm = () => {
           id="userPassword"
           name="userPassword"
           autoComplete="off"
-          placeholder="Password"
+          placeholder={t("loginPage.password")}
           ref={passwordInputRef}
           required={!validUserContext.isLoggedIn}
           data-testid="password" 
@@ -72,7 +75,7 @@ const LoginForm = () => {
         disabled={validUserContext.isLoggedIn}
         data-testid="submit" 
       >
-        {validUserContext.isLoggedIn ? "Already logged in" : "Login"}
+        {validUserContext.isLoggedIn ? t("loginPage.alreadyLoggedIn") : t("loginPage.login")}
       </button>
     </form>
   );

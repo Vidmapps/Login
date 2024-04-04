@@ -1,0 +1,16 @@
+{
+    "loginPage": {
+        "login": "Login",
+        "passwordRequest": "Please enter you Login and your Password",
+        "username":  "Username or E-mail",
+        "password":  "Password",
+        "alreadyLoggedIn":  "Already logged in"
+    },
+    "alert": {
+        "loggedIn": "Logged in!",
+        "authFailed": "Authentication failed!",
+        "networkError": "Network error occurred. Check your internet connection.",
+        "serverError": "Server error occurred"
+    }
+}
+  
